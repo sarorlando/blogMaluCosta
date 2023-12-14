@@ -11,18 +11,19 @@ import FeedAdmin from "../../components/FeedAdmin/FeedAdmin";
 
 import fotoLP from "../../assets/fotoLP.jpg"
 import { useUsuario } from "../../context/UsuarioContext";
+import { useNavigate } from "react-router-dom";
 
 
 const Dashboard = () => {
 
     const { userLogged, setUserLogged, render, setRender } = useUsuario();
-
+    const navigate = useNavigate();
     const handleLogout = async (e) => {
         e.preventDefault();
         try {
             setUserLogged(false);
             setRender(true);
-            window.location.href = '/login';
+            navigate('/login');
 
         } catch (error) {
             console.error(error.message);
@@ -32,7 +33,7 @@ const Dashboard = () => {
     };
 
     function handleCreatePost(){
-        window.location.href = '/createPost';
+        navigate('/createPost');
     }
     return (
 

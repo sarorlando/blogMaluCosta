@@ -2,6 +2,7 @@ import { PaperAirplaneIcon, XMarkIcon } from '@heroicons/react/24/solid'
 import React, { useRef, useState } from 'react'
 import { fetcher } from '../../utils/fetcher';
 import { CreatePostStyled } from './CreatePost.style';
+import { useNavigate } from 'react-router-dom';
 
 const CreatePost = () => {
 
@@ -9,6 +10,7 @@ const CreatePost = () => {
     const [title, setTitle] = useState('');
     const [subtitle, setSubtitle] = useState('');
     const [content, setContent] = useState('');
+    const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -17,7 +19,7 @@ const CreatePost = () => {
             let response = await fetcher.createPost(post);
             console.log('Post adicionado com sucesso', response);
             formRef.current.reset();
-            window.location.href = '/blog'
+            navigate('/blog');
         } catch (error) {
             console.error(error.message);
         }

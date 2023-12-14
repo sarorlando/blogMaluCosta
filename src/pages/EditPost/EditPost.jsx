@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { PaperAirplaneIcon, XMarkIcon } from "@heroicons/react/24/solid"
 import { fetcher } from "../../utils/fetcher";
 import { EditPostStyled } from './EditPost.style';
+import { useNavigate } from 'react-router-dom';
 const EditPost = () => {
 
 
@@ -17,6 +18,7 @@ const EditPost = () => {
     const [title, setTitle] = useState('');
     const [subtitle, setSubtitle] = useState('');
     const [content, setContent] = useState('');
+    const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -26,7 +28,7 @@ const EditPost = () => {
             let response = await fetcher.updatePost(post);
             console.log('Post adicionado com sucesso', response);
             formRef.current.reset();
-           window.location.href = '/blog'
+            navigate('/blog');
         } catch (error) {
             console.error(error.message);
         }
