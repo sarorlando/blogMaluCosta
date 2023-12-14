@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { fetcher } from '../../utils/fetcher';
 import { PostsBlogStyled } from './PostsBlog.style';
 
-
-
-
 const PostsBlog = () => {
 
     const [posts, setPosts] = useState([]);

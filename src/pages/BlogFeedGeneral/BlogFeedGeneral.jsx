@@ -1,7 +1,8 @@
 import React from 'react'
-import PostsBlog from '../../components/postsBlog/PostsBlog'
+
 import { BlogFeedGeneraldStyled } from './BlogFeedGeneral.style'
 import fotoLP from "../../assets/fotoLP.jpg"
+import PostsBlog from './PostsBlog'
 
 const BlogFeedGeneral = () => {
 
