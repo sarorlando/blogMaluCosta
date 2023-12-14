@@ -2,14 +2,14 @@ import React, { useRef, useState } from 'react'
 import { useUsuario } from '../../context/UsuarioContext';
 import { fetcher } from '../../utils/fetcher';
 import { LoginStyled } from './Login.style';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const formRef = useRef();
     const { userLogged, setUserLogged, render, setRender } = useUsuario();
-    const history = useHistory();
+    const navigate = useNavigate();
     
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -17,7 +17,7 @@ const Login = () => {
             let user = await fetcher.getUser();
             if (user[0].email === email && user[0].password == password) {
                 setUserLogged(true);
-                history.push('/blog');
+                navigate('/blog');
             }
             else {
                 formRef.current.reset();
