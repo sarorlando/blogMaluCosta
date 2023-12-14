@@ -3,6 +3,7 @@ import { useUsuario } from '../../context/UsuarioContext';
 import { fetcher } from '../../utils/fetcher';
 import { LoginStyled } from './Login.style';
 import { useNavigate } from 'react-router-dom';
+import { KeyIcon } from '@heroicons/react/24/solid';
 
 const Login = () => {
     const [email, setEmail] = useState('');
